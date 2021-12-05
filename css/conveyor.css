@@ -1,0 +1,43 @@
+#img{
+    width: 710px;
+    height: 171px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+#entry{
+    text-align: center;
+}
+.progress{
+    list-style-type: none;
+    display: inline-block;
+    margin: 20px 20px;
+}
+#login, #signup{
+    width: 223px;
+    height: 67px;
+    font-size: 40px;
+    border-radius: 10px;
+}
+
+#login:hover, #signup:hover{
+    box-shadow: 3px 3px 7px gray;
+}
+
+#login{
+    background-color: black;
+    color:white;
+}
+
+#signup{
+    background-color: white;
+    color: black;
+}
+
+#first{
+    margin: 170px auto 10px;
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 3px 3px 7px gray;
+}
+
