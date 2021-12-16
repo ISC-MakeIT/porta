@@ -7,6 +7,7 @@ import Message from "./components/Message";
 
 function App() {
   return (
+    // TODO: react-router-domを追加する
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
