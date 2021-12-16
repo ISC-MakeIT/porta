@@ -7,7 +7,23 @@ services:
     restart: always
     depends_on:
       - backend
+  ngrok:
+    image: wernight/ngrok
+    restart: always
+    environment:
+      NGROK_AUTH: $NGROK_AUTH_TOKEN
+      NGROK_PROTOCOL: http
+      NGROK_PORT: backend:3010
+    ports:
+      - 4040:4040
+    networks:
+      - default
+    depends_on:
+      - backend
   backend:
     build: ./backend
     ports:
       - 3010:3010
+
+networks:
+  default: null
