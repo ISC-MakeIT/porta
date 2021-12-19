@@ -1,4 +1,5 @@
 FROM golang:1.17-alpine
+RUN apk add --no-cache gcc musl-dev
 
 WORKDIR /api
 COPY go.mod /api/go.mod
