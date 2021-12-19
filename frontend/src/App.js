@@ -1,16 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
 import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButon";
-import Profile from "./components/Profile";
-import Message from "./components/Message";
+import styles from "./conveyor.module.css";
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import User from "./pages/User"
+import User from "./pages/User";
 import { useAuth0 } from '@auth0/auth0-react';
+import IconPORTA from "./IconPORTA.png";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -23,12 +21,14 @@ function App() {
               <User />
             ) :
               (
-                <header className="App-header">
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <LoginButton />
-                  <Profile />
-                  <Message />
-                </header>
+                <>
+                <div id={styles.img}>
+                    <img src = {IconPORTA} width={710} height={171} alt="PORTA" />
+                </div>
+                <div id={styles.progress}>
+                    <LoginButton />
+                </div>
+                </>
               )
           } />
         </Routes>
