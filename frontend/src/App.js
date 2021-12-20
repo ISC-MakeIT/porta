@@ -4,7 +4,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import User from "./pages/User";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             isAuthenticated ? (
-              <User />
+              <Header />
             ) :
               (
                 <Home />
