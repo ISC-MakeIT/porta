@@ -1,0 +1,12 @@
+#img {
+  width: 710px;
+  height: 171px;
+  margin: 250px auto 15px;
+}
+
+#progress {
+  width: 550px;
+  height: 67px;
+  margin: 10px auto;
+  display: block;
+}
