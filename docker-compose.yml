@@ -18,8 +18,6 @@ services:
       NGROK_PORT: backend:3010
     ports:
       - 4040:4040
-    networks:
-      - default
     depends_on:
       - backend
   backend:
@@ -38,6 +36,3 @@ services:
       - ./data:/data
     command: >
       server /data --console-address ":9001"
-
-networks:
-  default: null
