@@ -4,6 +4,7 @@ import "gorm.io/gorm"
 
 type User struct {
 	gorm.Model
+	Auth0ID  string `gorm:"auth0_id" json:"auth0_id"`
 	Name     string
 	Nickname string
 	Picture  string

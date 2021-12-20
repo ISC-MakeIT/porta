@@ -69,9 +69,9 @@ func SetUpRouter(db *gorm.DB) {
 		ctx.JSON(http.StatusOK, user)
 	})
 
-	router.DELETE("/user/:id", func(ctx *gin.Context) {
+	router.DELETE("/user/:auth0_id", func(ctx *gin.Context) {
 		user := model.User{}
-		db.First(&user, ctx.Param("id"))
+		db.First(&user, ctx.Param("auth0_id"))
 		db.Delete(&user)
 		ctx.JSON(http.StatusOK, user)
 	})
@@ -103,6 +103,19 @@ func SetUpRouter(db *gorm.DB) {
 		db.First(&post, ctx.Param("id"))
 		db.Delete(&post)
 		ctx.JSON(http.StatusOK, post)
+	})
+
+	// other
+
+	router.POST("/auth0/user", func(ctx *gin.Context) {
+		user := model.User{}
+		gotUser := model.User{}
+		ctx.BindJSON(&user)
+		result := db.First(&gotUser, "auth0_id = ?", user.Auth0ID)
+		if result.RowsAffected == 0 {
+			db.Create(&user)
+		}
+		ctx.JSON(http.StatusOK, user)
 	})
 
 	log.Print("Server listening on http://localhost:3010")
