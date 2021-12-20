@@ -5,6 +5,8 @@ services:
     ports:
       - 3000:3000
     restart: always
+    volumes:
+      - ./frontend:/app
     depends_on:
       - backend
   ngrok:
