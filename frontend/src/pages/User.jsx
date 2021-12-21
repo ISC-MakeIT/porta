@@ -8,7 +8,7 @@ const User = () => {
   let params = useParams();
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main class={styles.main}>
         <div class={styles.left_container}>
           <div class={styles.control}>
