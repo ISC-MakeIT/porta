@@ -4,6 +4,7 @@ import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButon";
 import Profile from "./components/Profile";
 import Message from "./components/Message";
+import FileUploader from "./components/FileUploader";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <LogoutButton />
         <Profile />
         <Message />
+        <FileUploader />
       </header>
     </div>
   );
