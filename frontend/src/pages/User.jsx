@@ -1,14 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import styles from "./User.module.css";
-import Header from "./Header.jsx";
+import Header from "../components/Header.jsx";
+import {useState} from "react";
 
 // TODO: Headerコンポーネントをこの画面に追加する
 
 const User = () => {
   let params = useParams();
+  const [appear, setAppear] = useState(false)
   return (
     <>
-      <Header />
+      {appear && <Header />}
       <main class={styles.main}>
         <div class={styles.left_container}>
           <div class={styles.control}>
@@ -16,6 +18,7 @@ const User = () => {
               class={styles.menu}
               src="/icons/menu-black.svg"
               alt="menu"
+              onClick={() => setAppear(!appear)}
             ></img>
             <Link to={`/edit/${params.user_id}`}>
               <img class={styles.edit} src="/icons/edit.svg" alt="edit"></img>
@@ -24,7 +27,7 @@ const User = () => {
           <div class={styles.profile}>
             <img
               class={styles.avatar}
-              src="https://placehold.jp/216x216.png"
+              src="/images/prof.png"
               alt="user"
             ></img>
             <h1>UserName</h1>

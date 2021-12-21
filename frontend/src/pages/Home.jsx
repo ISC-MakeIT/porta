@@ -12,7 +12,6 @@ const Home = () => {
       <div id={styles.progress}>
         <LoginButton />
       </div>
-      <LogoutButton />
     </>
   );
 };
