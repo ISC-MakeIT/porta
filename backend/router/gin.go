@@ -62,6 +62,12 @@ func SetUpRouter(db *gorm.DB) {
 		ctx.JSON(http.StatusOK, users)
 	})
 
+	router.GET("/user/:auth0_id", func(ctx *gin.Context) {
+		user := model.User{}
+		db.Where("auth0_id = ?", ctx.Param("auth0_id")).First(&user)
+		ctx.JSON(http.StatusOK, user)
+	})
+
 	router.PUT("/user", func(ctx *gin.Context) {
 		user := model.User{}
 		ctx.BindJSON(&user)
@@ -88,6 +94,12 @@ func SetUpRouter(db *gorm.DB) {
 	router.GET("/post", func(ctx *gin.Context) {
 		posts := []model.Post{}
 		db.Find(&posts)
+		ctx.JSON(http.StatusOK, posts)
+	})
+
+	router.GET("/posts/:user_id", func(ctx *gin.Context) {
+		posts := []model.Post{}
+		db.Where("user_id = ?", ctx.Param("user_id")).Find(&posts)
 		ctx.JSON(http.StatusOK, posts)
 	})
 
