@@ -19,7 +19,6 @@ function App() {
     //   </header>
     // </div>
     <div className="App">
-      <h1>Build on yourself to bloadcasting.</h1>
       <Routes>
         <Route
           path="/"
