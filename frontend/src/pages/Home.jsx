@@ -1,5 +1,6 @@
 import styles from "./Home.module.css";
-import LoginButton from '../components/LoginButton';
+import LoginButton from "../components/LoginButton";
+import LogoutButton from "../components/LogoutButton";
 import IconPORTA from "../IconPORTA.png";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <div id={styles.progress}>
         <LoginButton />
       </div>
+      <LogoutButton />
     </>
   );
 };

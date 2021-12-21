@@ -1,17 +1,9 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButon";
-import Profile from "./components/Profile";
-import Message from "./components/Message";
-import FileUploader from "./components/FileUploader";
-import Header from "./components/Header";
 import Home from "./pages/Home";
-import { useAuth0 } from '@auth0/auth0-react';
+import User from "./pages/User";
+import Edit from "./pages/Edit";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -26,20 +18,18 @@ function App() {
     //     <FileUploader />
     //   </header>
     // </div>
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={
-            isAuthenticated ? (
-              <Header />
-            ) :
-              (
-                <Home />
-              )
-          } />
-        </Routes>
-      </div>
-    </Router >
+    <div className="App">
+      <h1>Welcome to React Router!</h1>
+      <Routes>
+        <Route
+          path="/"
+          element={isAuthenticated ? <Navigate to="user/1" /> : <Home />}
+        />
+        <Route path="user/:user_id" element={<User />} />
+        <Route path="edit/:user_id" element={<Edit />} />
+        <Route path="*" element={<div>Not Found</div>} />
+      </Routes>
+    </div>
   );
 }
 
