@@ -1,14 +1,15 @@
 import { useParams, Link } from "react-router-dom";
 import styles from "./User.module.css";
-import Header from "./Header.jsx";
-
-// TODO: Headerコンポーネントをこの画面に追加する
+import Header from "../components/Header.jsx";
+import { useContext } from "react";
+import { AppearContext } from "../App";
 
 const User = () => {
+  const { appear, setAppear } = useContext(AppearContext);
   let params = useParams();
   return (
     <>
-      {/* <Header /> */}
+      {appear && <Header />}
       <main class={styles.main}>
         <div class={styles.left_container}>
           <div class={styles.control}>
@@ -16,6 +17,7 @@ const User = () => {
               class={styles.menu}
               src="/icons/menu-black.svg"
               alt="menu"
+              onClick={() => setAppear(!appear)}
             ></img>
             <Link to={`/edit/${params.user_id}`}>
               <img class={styles.edit} src="/icons/edit.svg" alt="edit"></img>
