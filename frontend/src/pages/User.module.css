@@ -31,7 +31,9 @@
 .avatar {
   margin: 50px auto;
   border-radius: 50%;
-  max-width: 216px;
+  width: 216px;
+  height: 216px;
+  object-fit: cover;
 }
 .icons {
   width: 350px;
