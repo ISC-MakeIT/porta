@@ -55,6 +55,11 @@
   align-items: center;
   justify-content: center;
 }
+.create {
+  margin: 20px;
+  width: 60px;
+  height: 60px;
+}
 .posts {
   display: flex;
   flex-direction: column;

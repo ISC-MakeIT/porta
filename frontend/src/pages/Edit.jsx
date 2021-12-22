@@ -114,8 +114,15 @@ const Edit = () => {
           </div>
         </div>
         <div class={styles.right_container}>
+          <Link to="/create">
+            <img
+              class={styles.create}
+              src="/icons/create.svg"
+              alt="create"
+            ></img>
+          </Link>
           <ul class={styles.posts}>
-            {/* <Link to="/post/1">
+            <Link to="/post/1">
               <li class={styles.post}>
                 <img
                   src="https://placehold.jp/710x415.png"
@@ -124,7 +131,7 @@ const Edit = () => {
                 <h1>title</h1>
                 <p>text</p>
               </li>
-            </Link> */}
+            </Link>
             {postsLi ? "新しく記事を作ってみましょう" : postsLi}
           </ul>
         </div>

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import User from "./pages/User";
 import Edit from "./pages/Edit";
 import Post from "./pages/Post";
+import Create from "./pages/Create";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect, createContext } from "react";
 
@@ -66,6 +67,10 @@ function App() {
               <Route
                 path="edit/:user_id"
                 element={isAuthenticated ? <Edit /> : <Navigate to={`/`} />}
+              />
+              <Route
+                path="create"
+                element={isAuthenticated ? <Create /> : <Navigate to={`/`} />}
               />
               <Route path="post/:id" element={<Post />} />
               <Route path="*" element={<div>Not Found</div>} />
