@@ -69,7 +69,7 @@ function App() {
                 element={isAuthenticated ? <Edit /> : <Navigate to={`/`} />}
               />
               <Route
-                path="create"
+                path="create/:user_id"
                 element={isAuthenticated ? <Create /> : <Navigate to={`/`} />}
               />
               <Route path="post/:id" element={<Post />} />

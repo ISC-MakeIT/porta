@@ -68,3 +68,8 @@
 .post {
   list-style: none;
 }
+.photo {
+  width: 710px;
+  height: 415px;
+  object-fit: cover;
+}
