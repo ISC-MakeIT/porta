@@ -63,7 +63,7 @@ useEffect(() => {
           </div>
           <div class={styles.profile}>
 
-            <img class={styles.avatar} src={profile.picture} alt="user"></img>
+            <img class={styles.avatar} src="/images/prof.png" alt="user"></img>
             <h1>{profile.name || "noname"}</h1>
             <p>{profile.body || "none"}</p>
             <div class={styles.icons}>
