@@ -1,17 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import styles from "./User.module.css";
 import Header from "../components/Header.jsx";
-import { useContext } from "react";
-import { AppearContext } from "../App";
-import { useState, useEffect } from "react";
+import { useState, useContext, useRef } from "react";
+import { AppearContext, ProfileContext, PostsContext } from "../App";
+import { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const User = () => {
   const { appear, setAppear } = useContext(AppearContext);
-  const { isAuthenticated } = useAuth0();
+  const { profile, setProfile } = useContext(ProfileContext);
+  const { posts, setPosts } = useContext(PostsContext);
   let params = useParams();
-  const [profile, setProfile] = useState({});
-  const [posts, setPosts] = useState([]);
 
   const postsLi = posts.map((post) => {
     return (
@@ -27,22 +26,20 @@ const User = () => {
   });
 
   useEffect(() => {
-    if (isAuthenticated) {
-      fetch(`http://localhost:3010/user/${params.user_id}`)
-        .then((res) => res.json())
-        .then((json) => {
-          console.log(json);
-          setProfile(json);
-        })
-        .catch((err) => console.log(err));
-      fetch(`http://localhost:3010/posts/${params.user_id}`)
-        .then((res) => res.json())
-        .then((json) => {
-          console.log(json);
-          setPosts(json);
-        });
-    }
-  }, [isAuthenticated, params]);
+    fetch(`http://localhost:3010/user/${params.user_id}`)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        setProfile(json);
+      })
+      .catch((err) => console.log(err));
+    fetch(`http://localhost:3010/posts/${params.user_id}`)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        setPosts(json);
+      });
+  }, [params.user_id, setProfile, setPosts]);
 
   return (
     <>
