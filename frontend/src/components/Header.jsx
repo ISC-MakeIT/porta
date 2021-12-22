@@ -1,23 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-<<<<<<< HEAD
-import Logoutbutton from "./LogoutButton";
 
-const Header = () => {
-    return(
-        <header>
-        <nav id={styles.topbar}>
-            <div id={styles.topimg}>
-                <img src="/images/porta-white.png" width="288px" height="79px" alt="PORTA"></img>
-            </div>
-            <Logoutbutton />
-        </nav>
-        </header>
-    );
-}
-
-export default Header;
-=======
 import { useAuth0 } from "@auth0/auth0-react";
 import { useContext } from "react";
 import { AppearContext } from "../App";
@@ -58,4 +41,3 @@ const Header = () => {
 };
 
 export default Header;
->>>>>>> 648f7684a54682457984eec95bb7ea4db6a161cc
