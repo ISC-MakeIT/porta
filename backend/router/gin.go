@@ -23,7 +23,8 @@ func SetUpRouter(db *gorm.DB) {
 		cors.Config{
 			AllowOrigins:     []string{"http://localhost:3000", "https://auth0.com/"},
 			AllowCredentials: true,
-			AllowHeaders:     []string{"Authorization"},
+			AllowMethods:     []string{"GET", "POST", "PUT", "DELETE"},
+			AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		},
 	))
 

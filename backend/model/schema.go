@@ -14,7 +14,7 @@ type User struct {
 
 type Post struct {
 	gorm.Model
-	UserID  uint   `gorm:"user_id" json:"user_id"`
+	UserID  string `gorm:"user_id" json:"user_id"`
 	Picture string `gorm:"picture" json:"picture"`
 	Title   string `gorm:"title" json:"title"`
 	Body    string `gorm:"body" json:"body"`

@@ -6,7 +6,7 @@ import Header from "../components/Header";
 
 const endpoint = "localhost:3010/post/";
 
-const Page = () => {
+const Post = () => {
   const { appear, setAppear } = useContext(AppearContext);
   const params = useParams();
   const [id, setId] = useState(params.id);
@@ -68,4 +68,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Post;

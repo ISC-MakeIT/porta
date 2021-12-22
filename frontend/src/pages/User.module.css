@@ -60,6 +60,11 @@
   flex-direction: column;
   gap: 30px;
 }
+.photo {
+  width: 710px;
+  height: 415px;
+  object-fit: cover;
+}
 .post {
   list-style: none;
 }
