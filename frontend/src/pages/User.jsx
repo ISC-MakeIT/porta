@@ -13,14 +13,16 @@ const User = () => {
   let params = useParams();
 
   const postsLi = posts.map((post) => {
+    console.log(post);
     return (
       <li class={styles.post}>
         <img
-          src={post.picture || "https://placehold.jp/710x415.png"}
-          alt="something"
+          class={styles.photo}
+          src={"http://localhost:9000/test/" + post.picture}
+          alt={post.picture}
         ></img>
         <h1>{post.title || "none"}</h1>
-        <p>{post.text || "none"}</p>
+        <p>{post.body || "none"}</p>
       </li>
     );
   });
@@ -29,7 +31,7 @@ const User = () => {
     fetch(`http://localhost:3010/user/${params.user_id}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        // console.log(json);
         setProfile(json);
       })
       .catch((err) => console.log(err));
@@ -82,7 +84,7 @@ const User = () => {
               <h1>title</h1>
               <p>text</p>
             </li> */}
-            {postsLi ? "新しく記事を作ってみましょう" : postsLi}
+            {postsLi}
           </ul>
         </div>
       </main>
